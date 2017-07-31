@@ -1,0 +1,6 @@
+A: 5
+B: 6
+C: 7
+D: 0
+E: 0
+numberOfVertices: 13

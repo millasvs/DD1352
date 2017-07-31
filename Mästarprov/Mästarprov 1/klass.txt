@@ -1,0 +1,14 @@
+
+Varje jämförelse halverar antalet möjligheter, vilket leder till att komplexiteten åtminstone är n log 2n $\in$ O(n log n).  
+
+Om man ska försöka bygga något slags beslutsträd (som i analysen av sorteringsproblemet) så kan man säga att det för varje lektion ställs frågan ``kan den här lektionen bokas in i det tidigast tillgängliga klassrummet?'' En jämförelse görs även här, mellan lektionens starttid och klassrummets tidigaste lediga tid. Om man svarar nej på frågan så händer antingen 1) man allokerar ett nytt klassrum, vilket görs högst k gånger, och går sedan över till nästa klassrum, 2) man bokar inte klassrummet överhuvudtaget eftersom k klassrum redan allokerats och går istället vidare till nästa klassrum. Om man svarar ja på frågan bokar man lektionen i det aktuella klassrummet och går över till nästa lektion, vilket görs högst n gånger. I vilket fall som helst blir det ett träd med djup n. Det kan se ut lite som följande, om vi antar att vi är på lektion i:
+\begin{verbatim}
+
+\end{verbatim}
+
+\Tree[.\textit{$s_i \geq minPQ()$?} [.\textit{(allokerar ev nytt klassum) $s_{i+1} \geq minPQ()$?} \textit{o.s.v.} ][.\textit{$s_{i+1} \geq minPQ()$?} \textit{o.s.v.} ]]
+
+\begin{verbatim}
+
+\end{verbatim}
+Och visst kräver inte det ursprungliga problemet att man använder en prioritetskö för alla klassrum, men alternativet är att man gör den här jämförelsen för alla k klassrum, och det behövs egentligen inte. Alltså har vi O(n log n) samt $\Omega$(n log n) = $\theta$(n log n).
